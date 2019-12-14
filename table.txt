@@ -1,0 +1,7 @@
+CREATE TABLE `Grades` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `course` varchar(255) NOT NULL DEFAULT '',
+  `date` date NOT NULL,
+  `grade` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
