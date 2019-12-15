@@ -59,7 +59,7 @@ foreach ($result as $d) {
 <body>
     <div class="container pt-3">
         <h3>Grades This Semester</h3>
-        <canvas id="myChart" width="125" height="25"></canvas>
+        <canvas id="myChart" width="125" height="75"></canvas>
         <script>
             var dynamicColors = function() {
                 var r = Math.floor(Math.random() * 255);
