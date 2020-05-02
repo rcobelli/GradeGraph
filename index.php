@@ -19,7 +19,7 @@ try {
 
 $handle = $pdo->prepare('SELECT DISTINCT `date` FROM Grades');
 $handle->execute();
-$result = $handle->fetchAll(\PDO::FETCH_ASSOC);
+$result = $handle->fetchAll(PDO::FETCH_ASSOC);
 $dates = array();
 foreach ($result as $d) {
     array_push($dates, $d['date']);
@@ -27,7 +27,7 @@ foreach ($result as $d) {
 
 $handle = $pdo->prepare('SELECT DISTINCT `course` FROM Grades');
 $handle->execute();
-$result = $handle->fetchAll(\PDO::FETCH_ASSOC);
+$result = $handle->fetchAll(PDO::FETCH_ASSOC);
 $courses = array();
 $grades = array();
 foreach ($result as $d) {
@@ -36,7 +36,7 @@ foreach ($result as $d) {
     $handle = $pdo->prepare('SELECT grade FROM Grades WHERE course = ? ORDER BY date');
     $handle->bindValue(1, $d['course']);
     $handle->execute();
-    $result2 = $handle->fetchAll(\PDO::FETCH_ASSOC);
+    $result2 = $handle->fetchAll(PDO::FETCH_ASSOC);
     $grades[$d['course']] = array();
     foreach ($result2 as $g) {
         array_push($grades[$d['course']], $g['grade']);
@@ -45,7 +45,7 @@ foreach ($result as $d) {
 
 ?>
 
-<html>
+<html lang="en">
 <head>
     <style>
     body, html {
@@ -55,6 +55,7 @@ foreach ($result as $d) {
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <title>Grade Graph</title>
 </head>
 <body>
     <div class="container pt-3">
