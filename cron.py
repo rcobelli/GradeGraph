@@ -14,9 +14,9 @@ r = requests.get(url, headers=headers)
 data = json.loads(r.text)
 
 mydb = mysql.connector.connect(
-  host=config['gg']['db_host'].strip('\"'),
-  user=config['gg']['db_username'].strip('\"'),
-  passwd=config['gg']['db_password'].strip('\"'),
+  host="localhost",
+  user="ec2-user",
+  passwd="ec2-user",
   database=config['gg']['db_name'].strip('\"'),
   charset="ascii",
   auth_plugin='mysql_native_password'
