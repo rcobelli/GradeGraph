@@ -15,11 +15,11 @@ data = json.loads(r.text)
 
 mydb = mysql.connector.connect(
   host="localhost",
-  user="ec2-user",
-  passwd="ec2-user",
+  user=config['gg']['cron_username'].strip('\"'),
+  passwd=config['gg']['cron_password'].strip('\"'),
   database=config['gg']['db_name'].strip('\"'),
   charset="ascii",
-  auth_plugin='mysql_native_password'
+  unix_socket="/var/lib/mysql/mysql.sock"
 )
 
 mycursor = mydb.cursor()
