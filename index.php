@@ -95,6 +95,13 @@ foreach ($result as $d) {
                                 display: true,
                                 labelString: 'Date'
                             }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                suggestedMax: 100,
+                                suggestedMin: 0,
+                                beginAtZero: true
+                            }
                         }]
                     },
                 }
